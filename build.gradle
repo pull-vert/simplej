@@ -1,0 +1,34 @@
+/*
+ * Copyright 2018 SimpleJ's author : Frédéric Montariol. Use of this source code is governed by the Apache 2.0 license.
+ */
+
+// Report Gradle version and Kotlin compiler version when building project
+println("Using Gradle version: ${GradleVersion.current()}")
+println("Using Java version: ${JavaVersion.current()}")
+
+subprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile("org.junit.jupiter:junit-jupiter-api:$junit_jupiter_version")
+        testCompile("org.junit.jupiter:junit-jupiter-params:$junit_jupiter_version")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junit_jupiter_version")
+    }
+
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+    }
+}
+
+// execute ./gradlew wrapper then remove .gradle directory when version change
+wrapper {
+    gradleVersion = "$gradle_version"
+    distributionType = Wrapper.DistributionType.ALL
+}
