@@ -29,13 +29,13 @@ public final class SimpleJGenerator {
                         try {
                             return Files.readAllLines(path); // Path -> List<String>
                         } catch (IOException e) {
-                            LOGGER.error("Error parsing file {}", path.toString());
+                            LOGGER.error("Error parsing file {}", path);
                             return null;
                         }
                     })
                     .filter(Objects::nonNull) // filter unparseable files
                     .map(SimpleJToJavaTransformer::transform) // transform SJ file to Java file
-                    .forEach(java -> java.toString()); // todo save Java file
+                    .forEach(System.out::println); // todo save Java file
         }
     }
 }
