@@ -15,11 +15,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public final class SimpleJGenerator {
+public final class SimpleJToJavaGenerator {
 
-    private Logger LOGGER = LoggerFactory.getLogger(SimpleJGenerator.class);
+    private Logger LOGGER = LoggerFactory.getLogger(SimpleJToJavaGenerator.class);
 
-    public SimpleJGenerator(List<String> classpath, File inputDir, File outputDir) throws IOException {
+    public SimpleJToJavaGenerator(List<String> classpath, File inputDir, File outputDir) throws IOException {
         // get all files from inputDir
         try (Stream<Path> paths = Files.walk(inputDir.toPath())) {
             paths
@@ -27,7 +27,7 @@ public final class SimpleJGenerator {
                     .filter(path -> path.endsWith(".sj")) // filter only *.sj files
                     .map(path -> {
                         try {
-                            return Files.readAllLines(path); // Path -> List<String>
+                            return Files.readAllLines(path).iterator(); // Path -> List<String>
                         } catch (IOException e) {
                             LOGGER.error("Error parsing file {}", path);
                             return null;

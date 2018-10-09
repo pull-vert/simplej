@@ -4,6 +4,7 @@
 
 package org.simplej.generator;
 
+import java.util.Iterator;
 import java.util.List;
 
 final class SimpleJToJavaTransformer {
@@ -17,7 +18,12 @@ final class SimpleJToJavaTransformer {
      *
      * @param lines SJ lines
      */
-    static List<String> transform(List<String> lines) {
+    static List<String> transform(Iterator<String> lines) {
+        // 1) clean lines (trim, remove comments, remove empty lines...)
+        List<String> cleanedLines = LineUtils.cleanLines(lines);
+        for (String line : cleanedLines) {
+            // 1 imports
+        }
         return null;
     }
 }
