@@ -2,11 +2,6 @@
  * Copyright 2018 SimpleJ's author : Frédéric Montariol. Use of this source code is governed by the Apache 2.0 license.
  */
 
-sourceCompatibility = 1.8
-
 dependencies {
-    compile("org.slf4j:slf4j-api:$slf4j_version")
     compile("com.squareup:javapoet:$javapoet_version")
-
-    runtime("org.slf4j:slf4j-simple:$slf4j_version")
 }

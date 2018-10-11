@@ -4,5 +4,8 @@
 
 rootProject.name = 'simplej'
 
-include 'simplej-java-generator'
+include 'generator'
+include 'generator:simplej-generator-api'
+include 'generator:simplej-java-generator'
+
 include 'simplej-stdlib'
