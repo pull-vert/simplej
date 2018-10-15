@@ -6,6 +6,9 @@ package org.simplej.generator.java;
 
 import org.simplej.generator.SimpleJTransformer;
 
+/**
+ * Singleton class that transform a SimpleJ file to Java file
+ */
 final class SimpleJToJavaTransformer implements SimpleJTransformer {
 
     // private constructor

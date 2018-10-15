@@ -31,7 +31,7 @@ public interface SimpleJGenerator {
                         }
                     })
                     .filter(Objects::nonNull) // filter unparseable or empty files
-                    .map(getSimpleJTransformer()) // transform SJ file to target file
+                    .map(getSimpleJTransformer()) // transform SimpleJ file to target file
                     .forEach(System.out::println); // todo save file
         }
     }
